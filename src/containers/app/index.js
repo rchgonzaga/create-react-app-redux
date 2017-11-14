@@ -7,7 +7,15 @@ import { Input, Menu, Segment, Form } from 'semantic-ui-react'
 
 class App extends Component {
 
-  state = { activeItem: 'home' }
+  state = { activeItem: 'home', name: '', email: '', submittedName: '', submittedEmail: '' }
+
+  handleChange = (e, { name, value }) => this.setState({ [name]: value })
+
+  handleSubmit = () => {
+    const { name, email } = this.state
+
+    this.setState({ submittedName: name, submittedEmail: email })
+  }
 
   handleItemClick = (e, { name }) => {
     console.log(name);
@@ -17,15 +25,33 @@ class App extends Component {
   render(){
 
     const { activeItem } = this.state
+    const { name, email, submittedName, submittedEmail } = this.state
 
     return (
 
       <div>
-
         <Menu pointing>
-          <Menu.Item as={Link} to='/' name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
-          <Menu.Item as={Link} to='/about-us' name='about' active={activeItem === 'about'} onClick={this.handleItemClick} />
-          <Menu.Item as={Link} to='/permissions' name='permissions' active={activeItem === 'permissions'} onClick={this.handleItemClick} />
+
+          <Menu.Item 
+            as={Link} 
+            to='/' 
+            name='home' 
+            active={activeItem === 'home'} 
+            onClick={this.handleItemClick} />
+
+          <Menu.Item 
+            as={Link} 
+            to='/about-us' 
+            name='about' 
+            active={activeItem === 'about'} 
+            onClick={this.handleItemClick} />
+
+          <Menu.Item 
+            as={Link} 
+            to='/permissions' 
+            name='permissions' 
+            active={activeItem === 'permissions'} 
+            onClick={this.handleItemClick} />
           
           <Menu.Menu position='right'>
             <Menu.Item>
@@ -38,31 +64,13 @@ class App extends Component {
         <Segment>
           {activeItem}
 
-          <Form>
-            <Form.Group>
-              <Form.Input label='First name' placeholder='First Name' width={6} />
-              <Form.Input label='Middle Name' placeholder='Middle Name' width={4} />
-              <Form.Input label='Last Name' placeholder='Last Name' width={6} />
-            </Form.Group>
-            <Form.Group>
-              <Form.Input placeholder='2 Wide' width={2} />
-              <Form.Input placeholder='12 Wide' width={12} />
-              <Form.Input placeholder='2 Wide' width={2} />
-            </Form.Group>
-            <Form.Group>
-              <Form.Input placeholder='8 Wide' width={8} />
-              <Form.Input placeholder='6 Wide' width={6} />
-              <Form.Input placeholder='2 Wide' width={2} />
-            </Form.Group>
-          </Form>
-          
         </Segment>
 
-        <header>
+        {/* <header>
           <Link to="/">Home</Link>
           <Link to="/about-us">About</Link>
           <Link to="/permissions">Permissions</Link>
-        </header>
+        </header> */}
 
         <main>
           <Route exact path="/" component={Home} />

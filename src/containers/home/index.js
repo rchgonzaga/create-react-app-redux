@@ -2,13 +2,13 @@ import React, {Component} from 'react'
 import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Button } from 'semantic-ui-react'
+import { Button, Breadcrumb } from 'semantic-ui-react'
 import {
   increment,
   incrementAsync,
   decrement,
   decrementAsync
-} from '../../modules/counter'
+} from '../../reducers/counter'
 
 class Home extends Component {
   
@@ -58,6 +58,18 @@ class Home extends Component {
               Go to about page via redux
           </button>
         </p>
+
+        <hr/>
+
+
+        <Breadcrumb size='tiny'>
+          <Breadcrumb.Section link>Home</Breadcrumb.Section>
+          <Breadcrumb.Divider icon='right chevron' />
+          <Breadcrumb.Section link>Registration</Breadcrumb.Section>
+          <Breadcrumb.Divider icon='right chevron' />
+          <Breadcrumb.Section active>Personal Information</Breadcrumb.Section>
+        </Breadcrumb>
+
 
         <Button.Group>
           <Button>Cancel</Button>
