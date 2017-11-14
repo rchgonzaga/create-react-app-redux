@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { Button } from 'semantic-ui-react'
 import {
   increment,
   incrementAsync,
@@ -9,24 +10,65 @@ import {
   decrementAsync
 } from '../../modules/counter'
 
-const Home = props => (
-  <div>
-    <h1>Home</h1>
-    <p>Count: {props.count}</p>
+class Home extends Component {
+  
+  constructor(props){
+    super(props)
 
-    <p>
-      <button onClick={props.increment} disabled={props.isIncrementing}>Increment</button>
-      <button onClick={props.incrementAsync} disabled={props.isIncrementing}>Increment Async</button>
-    </p>
+    this.state = props
+  }
 
-    <p>
-      <button onClick={props.decrement} disabled={props.isDecrementing}>Decrement</button>
-      <button onClick={props.decrementAsync} disabled={props.isDecrementing}>Decrement Async</button>
-    </p>
+  render() {
+    return(
+      <div>
+        <h1>Home</h1>
+        <p>Count: {this.props.count}</p>
 
-    <p><button onClick={() => props.changePage()}>Go to about page via redux</button></p>
-  </div>
-)
+        <p>
+          <button 
+            onClick={this.props.increment} 
+            disabled={this.props.isIncrementing}>
+              Increment
+          </button>
+
+          <button 
+            onClick={this.props.incrementAsync} 
+            disabled={this.props.isIncrementing}>
+              Increment Async
+          </button>
+        </p>
+
+        <p>
+          <button 
+            onClick={this.props.decrement} 
+            disabled={this.props.isDecrementing}>
+              Decrement
+          </button>
+
+          <button 
+            onClick={this.props.decrementAsync} 
+            disabled={this.props.isDecrementing}>
+              Decrement Async
+          </button>
+        </p>
+
+        <p>
+          <button 
+            onClick={() => this.props.changePage()}>
+              Go to about page via redux
+          </button>
+        </p>
+
+        <Button.Group>
+          <Button>Cancel</Button>
+          <Button.Or />
+          <Button positive>Save</Button>
+        </Button.Group>
+
+      </div>
+    )
+  }
+}
 
 const mapStateToProps = state => ({
   count: state.counter.count,
