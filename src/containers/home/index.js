@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Button, Breadcrumb } from 'semantic-ui-react'
+import { Button, Breadcrumb, Dropdown } from 'semantic-ui-react'
 import {
   increment,
   incrementAsync,
@@ -19,6 +19,28 @@ class Home extends Component {
   }
 
   render() {
+
+    const options = [
+      { key: 'angular', text: 'Angular', value: 'angular' },
+      { key: 'css', text: 'CSS', value: 'css' },
+      { key: 'design', text: 'Graphic Design', value: 'design' },
+      { key: 'ember', text: 'Ember', value: 'ember' },
+      { key: 'html', text: 'HTML', value: 'html' },
+      { key: 'ia', text: 'Information Architecture', value: 'ia' },
+      { key: 'javascript', text: 'Javascript', value: 'javascript' },
+      { key: 'mech', text: 'Mechanical Engineering', value: 'mech' },
+      { key: 'meteor', text: 'Meteor', value: 'meteor' },
+      { key: 'node', text: 'NodeJS', value: 'node' },
+      { key: 'plumbing', text: 'Plumbing', value: 'plumbing' },
+      { key: 'python', text: 'Python', value: 'python' },
+      { key: 'rails', text: 'Rails', value: 'rails' },
+      { key: 'react', text: 'React', value: 'react' },
+      { key: 'repair', text: 'Kitchen Repair', value: 'repair' },
+      { key: 'ruby', text: 'Ruby', value: 'ruby' },
+      { key: 'ui', text: 'UI Design', value: 'ui' },
+      { key: 'ux', text: 'User Experience', value: 'ux' },
+    ]
+
     return(
       <div>
         <h1>Home</h1>
@@ -61,7 +83,12 @@ class Home extends Component {
 
         <hr/>
 
+        <br/>
+        
+        <Dropdown placeholder='Skills' fluid multiple selection options={options} />
 
+        <br/>
+        
         <Breadcrumb size='tiny'>
           <Breadcrumb.Section link>Home</Breadcrumb.Section>
           <Breadcrumb.Divider icon='right chevron' />
@@ -87,6 +114,8 @@ const mapStateToProps = state => ({
   isIncrementing: state.counter.isIncrementing,
   isDecrementing: state.counter.isDecrementing
 })
+
+
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   increment,

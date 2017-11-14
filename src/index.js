@@ -5,6 +5,8 @@ import { ConnectedRouter } from 'react-router-redux'
 import store, { history } from './store'
 import App from './containers/app'
 
+import registerServiceWorker from './registerServiceWorker'
+
 import 'sanitize.css/sanitize.css'
 import 'semantic-ui-css/semantic.min.css';
 import './index.css'
@@ -21,3 +23,5 @@ render(
   </Provider>,
   target
 )
+
+registerServiceWorker()
