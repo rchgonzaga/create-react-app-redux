@@ -3,7 +3,7 @@ import { Route, Link } from 'react-router-dom'
 import Home from '../home'
 import About from '../about'
 import Permissions from '../permissions'
-import { Input, Menu, Segment } from 'semantic-ui-react'
+import { Input, Menu, Segment, Form } from 'semantic-ui-react'
 
 class App extends Component {
 
@@ -17,6 +17,7 @@ class App extends Component {
   render(){
 
     const { activeItem } = this.state
+
     return (
 
       <div>
@@ -35,7 +36,26 @@ class App extends Component {
         </Menu>
 
         <Segment>
-          {this.state.name}
+          {activeItem}
+
+          <Form>
+            <Form.Group>
+              <Form.Input label='First name' placeholder='First Name' width={6} />
+              <Form.Input label='Middle Name' placeholder='Middle Name' width={4} />
+              <Form.Input label='Last Name' placeholder='Last Name' width={6} />
+            </Form.Group>
+            <Form.Group>
+              <Form.Input placeholder='2 Wide' width={2} />
+              <Form.Input placeholder='12 Wide' width={12} />
+              <Form.Input placeholder='2 Wide' width={2} />
+            </Form.Group>
+            <Form.Group>
+              <Form.Input placeholder='8 Wide' width={8} />
+              <Form.Input placeholder='6 Wide' width={6} />
+              <Form.Input placeholder='2 Wide' width={2} />
+            </Form.Group>
+          </Form>
+          
         </Segment>
 
         <header>
