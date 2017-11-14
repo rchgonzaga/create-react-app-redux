@@ -3,11 +3,19 @@ import { Route, Link } from 'react-router-dom'
 import Home from '../home'
 import About from '../about'
 import Permissions from '../permissions'
-import { Input, Menu, Segment, Form } from 'semantic-ui-react'
+import { Input, Menu, Segment } from 'semantic-ui-react'
+import MainComponent from '../../components/MainComponent'
 
-class App extends Component {
+class App extends MainComponent {
 
-  state = { activeItem: 'home', name: '', email: '', submittedName: '', submittedEmail: '' }
+  state = { 
+    activeItem: 'home', 
+    name: '', 
+    email: '', 
+    submittedName: '', 
+    submittedEmail: '',
+    isLogged: false
+  }
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
@@ -17,6 +25,7 @@ class App extends Component {
     this.setState({ submittedName: name, submittedEmail: email })
   }
 
+  // Handles the click event
   handleItemClick = (e, { name }) => {
     console.log(name);
     this.setState({ activeItem: name })
@@ -26,6 +35,7 @@ class App extends Component {
 
     const { activeItem } = this.state
     const { name, email, submittedName, submittedEmail } = this.state
+    const { isLogged } = this.state
 
     return (
 

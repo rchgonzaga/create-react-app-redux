@@ -3,6 +3,7 @@ import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Button, Breadcrumb, Dropdown } from 'semantic-ui-react'
+import MainComponent from '../../components/MainComponent'
 import {
   increment,
   incrementAsync,
@@ -10,7 +11,8 @@ import {
   decrementAsync
 } from '../../reducers/counter'
 
-class Home extends Component {
+
+class Home extends MainComponent {
   
   constructor(props){
     super(props)
@@ -88,7 +90,7 @@ class Home extends Component {
         <Dropdown placeholder='Skills' fluid multiple selection options={options} />
 
         <br/>
-        
+
         <Breadcrumb size='tiny'>
           <Breadcrumb.Section link>Home</Breadcrumb.Section>
           <Breadcrumb.Divider icon='right chevron' />

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
+import MainComponent from '../../components/MainComponent'
 
-class About extends Component { 
+class About extends MainComponent { 
 
   render(){
 
