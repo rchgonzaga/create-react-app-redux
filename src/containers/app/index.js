@@ -22,8 +22,8 @@ class App extends Component {
       <div>
 
         <Menu pointing>
-          <Menu.Item as={Link} to='/' name='home' active={activeItem === '/'} onClick={this.handleItemClick} />
-          <Menu.Item as={Link} to='/about-us' name='about' active={activeItem === 'about-us'} onClick={this.handleItemClick} />
+          <Menu.Item as={Link} to='/' name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+          <Menu.Item as={Link} to='/about-us' name='about' active={activeItem === 'about'} onClick={this.handleItemClick} />
           <Menu.Item as={Link} to='/permissions' name='permissions' active={activeItem === 'permissions'} onClick={this.handleItemClick} />
           
           <Menu.Menu position='right'>
@@ -31,11 +31,11 @@ class App extends Component {
               <Input icon='search' placeholder='Search...' />
             </Menu.Item>
           </Menu.Menu>
-          
+
         </Menu>
 
         <Segment>
-          <img src='/assets/images/wireframe/paragraph.png' alt=""/>
+          {this.state.name}
         </Segment>
 
         <header>
